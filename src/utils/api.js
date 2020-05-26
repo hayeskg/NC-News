@@ -19,3 +19,9 @@ export const fetchArticleByID = (id) => {
     return data.article;
   })
 }
+
+export const fetchCommentsByID = (id) => {
+  return axios.get(`${baseURL}/articles/${id}/comments`).then(({ data }) => {
+    return data.comments;
+  })
+}

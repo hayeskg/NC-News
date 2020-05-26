@@ -1,8 +1,17 @@
 body{
   background-color: lightgray;
-}
-
-.App {
   text-align: center;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.CommentCard {
+  background-color: rosybrown;
+}
