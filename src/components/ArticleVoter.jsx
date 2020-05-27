@@ -11,6 +11,8 @@ class ArticleVoter extends Component {
     this.setState(({ userVotes }) => {
       return {
         userVotes: userVotes + vote,
+        upDisable: false,
+        downDisable: false,
       }
     })
     const { article_id } = this.props;
@@ -21,7 +23,7 @@ class ArticleVoter extends Component {
 
   render() {
     const { votes } = this.props
-    const { userVotes } = this.state;
+    const { userVotes, upDisable, downDisable } = this.state;
     if (this.state.err) return <p>{this.state.err}</p>
     return (
       <>

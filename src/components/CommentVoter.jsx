@@ -15,8 +15,7 @@ class CommentVoter extends Component {
     })
 
     const { comment_id } = this.props;
-    const { userVotes } = this.state;
-    api.patchCommentByID(comment_id, userVotes).catch(err => {
+    api.patchCommentByID(comment_id, vote).catch(err => {
       this.setState({ err: 'No API response.' });
     })
   }

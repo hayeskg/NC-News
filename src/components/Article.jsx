@@ -3,6 +3,7 @@ import * as api from '../utils/api';
 import Loader from './Loader'
 import CommentCard from './CommentCard';
 import ArticleVoter from './ArticleVoter';
+import CommentAdder from './CommentAdder';
 
 class Article extends Component {
   state = {
@@ -32,6 +33,7 @@ class Article extends Component {
   render() {
     if (this.state.isLoading) return <Loader />
     const { title, body, author, votes, created_at, comment_count, article_id } = this.state.article;
+    const { user } = this.props
     return (
       <article>
         <h2>{title}</h2>
@@ -40,6 +42,7 @@ class Article extends Component {
         <p>{body}</p>
         <ArticleVoter article_id={article_id} votes={votes} />
         <p>Comments: {comment_count}</p>
+        <CommentAdder currentUser={user} article_id={article_id} />
         {this.state.comments.map((comment) => {
           return <CommentCard key={comment.comment_id} {...comment} />;
         })}

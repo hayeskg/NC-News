@@ -37,3 +37,10 @@ export const patchCommentByID = (id, incVotes) => {
     return data.comment.votes;
   })
 }
+
+export const postNewCommentByArticleID = (id, newComment) => {
+  return axios.post(`${baseURL}/articles/${id}/comments`, newComment).then(({ data }) => {
+    console.log(data)
+    return data.comment;
+  })
+}
