@@ -5,11 +5,9 @@ class ArticleVoter extends Component {
 
   state = {
     userVotes: 0,
-    upDisabled: false,
-    downDisabled: false,
   };
 
-  handleVote = (vote, disable) => {
+  handleVote = (vote) => {
     this.setState(({ userVotes }) => {
       return {
         userVotes: userVotes + vote,
@@ -25,15 +23,15 @@ class ArticleVoter extends Component {
 
   render() {
     const { votes } = this.props
-    const { userVotes, upDisabled, downDisabled } = this.state;
+    const { userVotes } = this.state;
     if (this.state.err) return <p>{this.state.err}</p>
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
-        <button onClick={() => { this.handleVote(1, { upDisabled: true }) }} disabled={upDisabled}>
+        <button onClick={() => this.handleVote(1)} disabled={this.state.userVotes > 0}>
           <span role='img' aria-label='upvote'> 👍</span>
         </button>
-        <button onClick={() => { this.handleVote(-1, { downDisabled: true }) }} disabled={downDisabled} >
+        <button onClick={() => this.handleVote(-1)} disabled={this.state.userVotes < 0} >
           <span role='img' aria-label='downvote'> 👎</span>
         </button>
       </>
