@@ -44,7 +44,7 @@ class Article extends Component {
         <p>Comments: {comment_count}</p>
         <CommentAdder currentUser={user} article_id={article_id} />
         {this.state.comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} {...comment} />;
+          return <CommentCard key={comment.comment_id} {...comment} currentUser={user} />;
         })}
       </article>
     );
