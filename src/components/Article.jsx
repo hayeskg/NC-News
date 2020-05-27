@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../utils/api';
 import Loader from './Loader'
 import CommentCard from './CommentCard';
+import ArticleVoter from './ArticleVoter';
 
 class Article extends Component {
   state = {
@@ -30,17 +31,17 @@ class Article extends Component {
 
   render() {
     if (this.state.isLoading) return <Loader />
-    const { title, body, author, votes, created_at, comment_count } = this.state.article;
+    const { title, body, author, votes, created_at, comment_count, article_id } = this.state.article;
     return (
       <article>
         <h2>{title}</h2>
         <h3>Author: {author}</h3>
         <p>Created: {created_at}</p>
         <p>{body}</p>
-        <p>Votes: {votes}</p>
+        <ArticleVoter article_id={article_id} votes={votes} />
         <p>Comments: {comment_count}</p>
         {this.state.comments.map((comment) => {
-          return <CommentCard className={CommentCard} key={comment.comment_id} {...comment} />;
+          return <CommentCard key={comment.comment_id} {...comment} />;
         })}
       </article>
     );

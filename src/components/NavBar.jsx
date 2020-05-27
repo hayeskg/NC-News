@@ -27,6 +27,7 @@ class NavBar extends Component {
           {this.state.topics.map(({ slug }) => {
             return <li key={slug}> <Link to={`/articles/${slug}`}>{slug}</Link> </li>
           })}
+          <li><Link to='/'>Login</Link> </li>
         </ul>
       </nav>
     );

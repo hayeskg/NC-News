@@ -12,6 +12,14 @@ li {
   list-style-type: none;
 }
 
-.CommentCard {
-  background-color: rosybrown;
+.comment{
+  border: black;
+  border-style: dashed;
+  border-width: 1px;
+  background-color: lightseagreen;
+  width: 300px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
 }

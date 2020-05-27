@@ -25,3 +25,15 @@ export const fetchCommentsByID = (id) => {
     return data.comments;
   })
 }
+
+export const patchArticleByID = (id, incVotes) => {
+  return axios.patch(`${baseURL}/articles/${id}`, { inc_votes: incVotes }).then(({ data }) => {
+    return data.article.votes;
+  })
+}
+
+export const patchCommentByID = (id, incVotes) => {
+  return axios.patch(`${baseURL}/comments/${id}`, { inc_votes: incVotes }).then(({ data }) => {
+    return data.comment.votes;
+  })
+}
