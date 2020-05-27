@@ -5,33 +5,35 @@ class ArticleVoter extends Component {
 
   state = {
     userVotes: 0,
+    upDisabled: false,
+    downDisabled: false,
   };
 
   handleVote = (vote) => {
     this.setState(({ userVotes }) => {
       return {
         userVotes: userVotes + vote,
-        upDisable: false,
-        downDisable: false,
       }
     })
     const { article_id } = this.props;
-    api.patchArticleByID(article_id, vote).catch(err => {
-      this.setState({ err: 'No API response.' });
-    })
+    api.patchArticleByID(article_id, vote)
+      .catch(err => {
+        this.setState({ err: 'No API response.' });
+      })
   }
 
   render() {
     const { votes } = this.props
-    const { userVotes, upDisable, downDisable } = this.state;
+    const { userVotes, upDisabled, downDisabled } = this.state;
+    console.log(this.state)
     if (this.state.err) return <p>{this.state.err}</p>
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
-        <button onClick={() => { this.handleVote(1) }}>
+        <button onClick={() => { this.handleVote(1, { upDisabled: true }) }} disabled={upDisabled}>
           <span role='img' aria-label='upvote'> 👍</span>
         </button>
-        <button onClick={() => { this.handleVote(-1) }}>
+        <button onClick={() => { this.handleVote(-1, { downDisabled: true }) }} disabled={downDisabled} >
           <span role='img' aria-label='downvote'> 👎</span>
         </button>
       </>
