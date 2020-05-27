@@ -7,24 +7,10 @@ class CommentVoter extends Component {
     userVotes: 0,
   };
 
-  handleUpVote = () => {
+  handleVote = (vote) => {
     this.setState(({ userVotes }) => {
       return {
-        userVotes: userVotes + 1,
-      }
-    })
-
-    const { comment_id } = this.props;
-    const { userVotes } = this.state;
-    api.patchCommentByID(comment_id, userVotes).catch(err => {
-      this.setState({ err: 'No API response.' });
-    })
-  }
-
-  handleDownVote = () => {
-    this.setState(({ userVotes }) => {
-      return {
-        userVotes: userVotes - 1,
+        userVotes: userVotes + vote,
       }
     })
 
@@ -36,18 +22,17 @@ class CommentVoter extends Component {
   }
 
   render() {
-    const {votes} = this.props;
-    const {userVotes} = this.state;
+    const { votes } = this.props;
+    const { userVotes } = this.state;
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
-        <button onClick={this.handleUpVote}>
+        <button onClick={() => { this.handleVote(1) }}>
           <span role='img' aria-label='upvote'> 👍</span>
         </button>
-        <button onClick={this.handleDownVote}>
+        <button onClick={() => { this.handleVote(-1) }}>
           <span role='img' aria-label='downvote'> 👎</span>
         </button>
-    <p>///temp///{userVotes}</p>
       </>
     );
   }

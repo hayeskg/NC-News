@@ -7,46 +7,31 @@ class ArticleVoter extends Component {
     userVotes: 0,
   };
 
-  handleUpVote = () => {
+  handleVote = (vote) => {
     this.setState(({ userVotes }) => {
       return {
-        userVotes: userVotes + 1,
-      }
-    })
-    const {article_id} = this.props;
-    const { userVotes } = this.state;
-    api.patchArticleByID(article_id, userVotes).catch(err=>{
-      this.setState({err: 'No API response.'});
-    })
-  }
-
-  handleDownVote = () => {
-    this.setState(({ userVotes }) => {
-      return {
-        userVotes: userVotes - 1,
+        userVotes: userVotes + vote,
       }
     })
     const { article_id } = this.props;
-    const { userVotes } = this.state
-    api.patchArticleByID(article_id, userVotes).catch(err => {
+    api.patchArticleByID(article_id, vote).catch(err => {
       this.setState({ err: 'No API response.' });
     })
   }
 
   render() {
-    const {votes} = this.props
-    const {userVotes} = this.state;
+    const { votes } = this.props
+    const { userVotes } = this.state;
     if (this.state.err) return <p>{this.state.err}</p>
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
-        <button onClick={this.handleUpVote}>
+        <button onClick={() => { this.handleVote(1) }}>
           <span role='img' aria-label='upvote'> 👍</span>
         </button>
-        <button onClick={this.handleDownVote}>
+        <button onClick={() => { this.handleVote(-1) }}>
           <span role='img' aria-label='downvote'> 👎</span>
         </button>
-    <p>///temp///{this.state.userVotes}</p>
       </>
     );
   }
