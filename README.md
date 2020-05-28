@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# NC News
 
-In the project directory, you can run:
+## Introduction
 
-### `yarn start`
+NC News is a platform for all things Northcoders related. It allows users to browse, sort and read articles, then comment or vote on them live. 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The site repository is available on GitHub: https://github.com/hayeskg/nc-news 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+It is hosted live on Netlify: 
+```
+placeholder for hosted app address
+```
 
-### `yarn test`
+## Technologies used
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* The front-end is built using ReactJS (https://reactjs.org/), a library for building user interfaces. 
+* Reach is used for front-end routing (https://reach.tech/router).
+* Axios takes care of the promise-based HTTP requests to the back-end (https://www.npmjs.com/package/axios). 
+* Some styled components are used as part of the overall visual design (https://styled-components.com/).
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The back-end for this application can be found here: https://github.com/hayeskg/backend_nc_news.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+It's an Express server built on NodeJS and PostgreSQL with a list of available API endpoints. It is hosted live on Heroku: https://nc-news-hayeskg.herokuapp.com/.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting started
 
-### `yarn eject`
+To run the NC News application on a local development machine, clone or fork the project from: https://github.com/hayeskg/nc-news. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Prerequisites 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ReactJS requires NodeJS to be installed locally, to download:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* NodeJS: https://nodejs.org/en/download/ 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Run locally
 
-## Learn More
+After download, navigate to the directory and run the command:
+```
+npm i -D
+```
+This will install developer dependencies as outlined in the package.json file.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Once the dependencies are installed, only the following command will be needed:
+```
+npm start
+```
+This will start the server which will run locally on PORT 3000 - use client, like a browser to interact with the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authors
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Kristof Hayes - Northcoders

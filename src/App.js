@@ -12,7 +12,7 @@ class App extends Component {
 
   state = {
     currentUser: 'weegembump',
-    users: ['weegembump', 'rogersop', 'tickle122']
+    users: ['weegembump', 'happyamy2016', 'tickle122']
   }
 
   updateUser = (user) => {
