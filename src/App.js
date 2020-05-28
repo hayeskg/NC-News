@@ -6,6 +6,7 @@ import { Router } from '@reach/router'
 import ArticleList from './components/ArticleList';
 import Article from './components/Article'
 import ErrorDisplayer from './components/ErrorDisplayer';
+import Footer from "./components/Footer"
 
 class App extends Component {
 
@@ -26,6 +27,7 @@ class App extends Component {
           <Article path='/article/:article_id' user={currentUser} />
           <ErrorDisplayer default />
         </Router>
+        <Footer />
       </div>
     );
   }
