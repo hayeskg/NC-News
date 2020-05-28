@@ -34,6 +34,10 @@ class ArticleList extends Component {
       })
   }
 
+  updateFilter = (filter) => {
+    console.log(filter)
+  }
+
   render() {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
@@ -43,7 +47,7 @@ class ArticleList extends Component {
         <h2>Articles:</h2>
         <div>
           <label htmlFor="filters">Filter by: </label>
-          <select name="filters" id="filters">
+          <select onChange={() => { this.updateFilter('filter will go here...') }} name="filters" id="filters">
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
             })}

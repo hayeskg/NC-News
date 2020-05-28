@@ -6,20 +6,26 @@ import { Router } from '@reach/router'
 import ArticleList from './components/ArticleList';
 import Article from './components/Article'
 import ErrorDisplayer from './components/ErrorDisplayer';
-import Footer from "./components/Footer"
+import Footer from "./components/Footer";
 
 class App extends Component {
 
   state = {
     currentUser: 'weegembump',
+    users: ['demo', 'admin', 'recruiter']
+  }
+
+  updateUser = (user) => {
+    //this.setState({ currentUser: user })
+    console.log(user)
   }
 
   render() {
-    const { currentUser } = this.state
+    const { currentUser, users } = this.state
     return (
       <div>
         <Title user={currentUser} />
-        <NavBar />
+        <NavBar users={users} updateUser={this.updateUser} />
         <Router>
           <ArticleList path='/' />
           <ArticleList path='/articles' />
