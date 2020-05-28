@@ -8,6 +8,9 @@ class CommentDelete extends React.Component {
 
   handleDelete = () => {
     api.removeCommentByID(this.props.comment_id)
+      .then(() => {
+        this.props.getCommentsByID()
+      })
   }
 
   render() {

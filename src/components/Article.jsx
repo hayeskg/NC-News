@@ -42,9 +42,9 @@ class Article extends Component {
         <p>{body}</p>
         <ArticleVoter article_id={article_id} votes={votes} />
         <p>Comments: {comment_count}</p>
-        <CommentAdder currentUser={user} article_id={article_id} />
+        <CommentAdder currentUser={user} article_id={article_id} getCommentsByID={this.getCommentsByID} />
         {this.state.comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} {...comment} currentUser={user} />;
+          return <CommentCard key={comment.comment_id} {...comment} currentUser={user} getCommentsByID={this.getCommentsByID} />;
         })}
       </article>
     );
