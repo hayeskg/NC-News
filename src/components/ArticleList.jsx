@@ -44,7 +44,6 @@ class ArticleList extends Component {
   }
 
   render() {
-    console.log(this.state.sort_by)
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
