@@ -18,8 +18,8 @@ class CommentAdder extends Component {
       body: comment_body,
     }
     api.postNewCommentByArticleID(article_id, newComment)
-      .then(() => {
-        this.props.getCommentsByID();
+      .then((comment) => {
+        this.props.addCommentToState(comment)
       })
       .then(() => {
         this.setState({ comment_body: '' });

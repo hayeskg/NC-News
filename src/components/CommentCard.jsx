@@ -12,7 +12,7 @@ const CommentCard = (props) => {
       <p>{body}</p>
       <CommentVoter comment_id={comment_id} votes={votes} /><br />
       {author === currentUser &&
-        <CommentDelete comment_id={comment_id} getCommentsByID={props.getCommentsByID} />
+        <CommentDelete comment_id={comment_id} removeCommentFromState={props.removeCommentFromState} />
       }
     </ div>
   );

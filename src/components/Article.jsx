@@ -40,6 +40,22 @@ class Article extends Component {
       })
   }
 
+  addCommentToState = (newComment) => {
+    this.setState((currentState) => {
+      return { comments: [newComment, ...currentState.comments] }
+    })
+  }
+  removeCommentFromState = (comment_id) => {
+    this.setState((currentState) => {
+      const newCommments = currentState.comments.map((comment) => {
+        if (comment.comment_id !== comment_id) {
+          return comment;
+        }
+      })
+      return { comments: newCommments }
+    })
+  }
+
   render() {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
@@ -54,9 +70,9 @@ class Article extends Component {
         <p>{body}</p>
         <ArticleVoter article_id={article_id} votes={votes} />
         <p>Comments: {comment_count}</p>
-        <CommentAdder currentUser={user} article_id={article_id} getCommentsByID={this.getCommentsByID} />
+        <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
         {this.state.comments.map((comment) => {
-          return <CommentCard key={comment.comment_id} {...comment} currentUser={user} getCommentsByID={this.getCommentsByID} />;
+          return <CommentCard key={comment.comment_id} {...comment} currentUser={user} removeCommentFromState={this.removeCommentFromState} />;
         })}
       </article>
     );

@@ -21,7 +21,6 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <nav>
         <button>

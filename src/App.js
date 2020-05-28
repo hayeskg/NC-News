@@ -12,12 +12,11 @@ class App extends Component {
 
   state = {
     currentUser: 'weegembump',
-    users: ['demo', 'admin', 'recruiter']
+    users: ['weegembump', 'rogersop', 'tickle122']
   }
 
   updateUser = (user) => {
-    //this.setState({ currentUser: user })
-    console.log(user)
+    this.setState({ currentUser: user })
   }
 
   render() {
