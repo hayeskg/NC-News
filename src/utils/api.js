@@ -8,8 +8,13 @@ export const fetchTopics = async () => {
 
 }
 
-export const fetchArticles = async (topic) => {
-  const { data: { articles } } = await request.get('/articles', { params: { topic: topic } });
+export const fetchArticles = async (topic, sort_by) => {
+  const { data: { articles } } = await request.get('/articles', {
+    params: {
+      topic: topic,
+      sort_by: sort_by,
+    }
+  });
   return articles;
 }
 

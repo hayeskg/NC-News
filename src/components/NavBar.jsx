@@ -29,11 +29,11 @@ class NavBar extends Component {
           </Link>
         </button>
 
-        <button>
+        {/* <button>
           <Link to='/'>
             <img src="http://cdn.onlinewebfonts.com/svg/img_311846.svg" height='40' width='40' alt="login icon" />
           </Link>
-        </button>
+        </button> */}
         <Login users={this.props.users} updateUser={this.props.updateUser} />
         <p>Topics:</p>
         {this.state.topics.map(({ slug }) => {

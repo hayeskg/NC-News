@@ -8,7 +8,8 @@ class ArticleList extends Component {
   state = {
     articles: [
     ],
-    filters: ['Date', 'Comment count', 'Vote count'],
+    filters: ['created_at', 'comment_count', 'votes'],
+    sort_by: '',
     isLoading: true,
     err: '',
   }
@@ -17,15 +18,19 @@ class ArticleList extends Component {
     this.getArticles();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.topic !== prevProps.topic) {
+      this.getArticles();
+    }
+    else if (this.state.sort_by !== prevState.sort_by) {
       this.getArticles();
     }
   }
 
   getArticles = () => {
     const { topic } = this.props;
-    api.fetchArticles(topic)
+    const { sort_by } = this.state;
+    api.fetchArticles(topic, sort_by)
       .then((articles) => {
         this.setState({ articles, isLoading: false })
       })
@@ -35,10 +40,11 @@ class ArticleList extends Component {
   }
 
   updateFilter = (filter) => {
-    console.log(filter)
+    this.setState({ sort_by: filter, isLoading: false })
   }
 
   render() {
+    console.log(this.state.sort_by)
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
@@ -47,7 +53,7 @@ class ArticleList extends Component {
         <h2>Articles:</h2>
         <div>
           <label htmlFor="filters">Filter by: </label>
-          <select onChange={() => { this.updateFilter('filter will go here...') }} name="filters" id="filters">
+          <select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters">
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
             })}
