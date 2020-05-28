@@ -38,10 +38,10 @@ class CommentAdder extends Component {
   render() {
     return (
       <div className={'addComment'}>
-        <h2>Add a Comment:</h2>
+        <h2>Add a Comment: </h2>
         <form onSubmit={this.handleCommentSubmit}>
-          <label htmlFor='comment_body'>Comment:</label>
-          <input onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} />
+          <label htmlFor='comment_body'>Comment: </label>
+          <input onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required />
           <button>Add!</button>
         </form>
       </div>

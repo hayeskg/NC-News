@@ -4,34 +4,47 @@ import Loader from './Loader'
 import CommentCard from './CommentCard';
 import ArticleVoter from './ArticleVoter';
 import CommentAdder from './CommentAdder';
+import ErrorDisplayer from './ErrorDisplayer';
 
 class Article extends Component {
   state = {
     article: {},
     comments: [],
-    isLoading: true
+    isLoading: true,
+    err: '',
   }
 
   componentDidMount() {
     Promise.all([this.getArcticleByID(), this.getCommentsByID()]);
+    ///catch
   }
 
   getArcticleByID = () => {
     const { article_id } = this.props;
-    api.fetchArticleByID(article_id).then((article) => {
-      this.setState({ article, isLoading: false });
-    })
+    api.fetchArticleByID(article_id)
+      .then((article) => {
+        this.setState({ article, isLoading: false });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false })
+      })
   }
 
   getCommentsByID = () => {
     const { article_id } = this.props;
-    api.fetchCommentsByID(article_id).then((comments) => {
-      this.setState({ comments });
-    })
+    api.fetchCommentsByID(article_id)
+      .then((comments) => {
+        this.setState({ comments });
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false })
+      })
   }
 
   render() {
-    if (this.state.isLoading) return <Loader />
+    const { isLoading, err } = this.state;
+    if (isLoading) return <Loader />
+    if (err) return <ErrorDisplayer msg={err} />
     const { title, body, author, votes, created_at, comment_count, article_id } = this.state.article;
     const { user } = this.props
     return (

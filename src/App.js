@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import { Router } from '@reach/router'
 import ArticleList from './components/ArticleList';
 import Article from './components/Article'
+import ErrorDisplayer from './components/ErrorDisplayer';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
           <ArticleList path='/articles' />
           <ArticleList path='/articles/:topic' />
           <Article path='/article/:article_id' user={currentUser} />
+          <ErrorDisplayer default />
         </Router>
       </div>
     );

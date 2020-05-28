@@ -1,49 +1,43 @@
 import axios from 'axios'
 
-const baseURL = 'https://nc-news-hayeskg.herokuapp.com/api';
+const request = axios.create({ baseURL: 'https://nc-news-hayeskg.herokuapp.com/api' })
 
-export const fetchTopics = () => {
-  return axios.get(`${baseURL}/topics`).then(({ data }) => {
-    return data.topics;
-  })
+export const fetchTopics = async () => {
+  const { data: { topics } } = await request.get('/topics');
+  return topics;
+
 }
 
-export const fetchArticles = (topic) => {
-  return axios.get(`${baseURL}/articles`, { params: { topic: topic } }).then(({ data }) => {
-    return data.articles;
-  })
+export const fetchArticles = async (topic) => {
+  const { data: { articles } } = await request.get('/articles', { params: { topic: topic } });
+  return articles;
 }
 
-export const fetchArticleByID = (id) => {
-  return axios.get(`${baseURL}/articles/${id}`).then(({ data }) => {
-    return data.article;
-  })
+export const fetchArticleByID = async (id) => {
+  const { data: { article } } = await request.get(`/articles/${id}`);
+  return article;
 }
 
-export const fetchCommentsByID = (id) => {
-  return axios.get(`${baseURL}/articles/${id}/comments`).then(({ data }) => {
-    return data.comments;
-  })
+export const fetchCommentsByID = async (id) => {
+  const { data: { comments } } = await request.get(`/articles/${id}/comments`);
+  return comments;
 }
 
-export const patchArticleByID = (id, incVotes) => {
-  return axios.patch(`${baseURL}/articles/${id}`, { inc_votes: incVotes }).then(({ data }) => {
-    return data.article.votes;
-  })
+export const patchArticleByID = async (id, incVotes) => {
+  const { data: { article: { votes } } } = await request.patch(`/articles/${id}`, { inc_votes: incVotes });
+  return votes;
 }
 
-export const patchCommentByID = (id, incVotes) => {
-  return axios.patch(`${baseURL}/comments/${id}`, { inc_votes: incVotes }).then(({ data }) => {
-    return data.comment.votes;
-  })
+export const patchCommentByID = async (id, incVotes) => {
+  const { data: { comment: { votes } } } = await request.patch(`/comments/${id}`, { inc_votes: incVotes })
+  return votes;
 }
 
-export const postNewCommentByArticleID = (id, newComment) => {
-  return axios.post(`${baseURL}/articles/${id}/comments`, newComment).then(({ data }) => {
-    return data.comment;
-  })
+export const postNewCommentByArticleID = async (id, newComment) => {
+  const { data: { comment } } = await request.post(`/articles/${id}/comments`, newComment)
+  return comment;
 }
 
-export const removeCommentByID = (id) => {
-  return axios.delete(`${baseURL}/comments/${id}`);
+export const removeCommentByID = async (id) => {
+  await request.delete(`/comments/${id}`);
 }
