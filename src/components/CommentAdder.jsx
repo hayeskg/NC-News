@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import * as api from '../utils/api'
+import ErrorDisplayer from './ErrorDisplayer';
 
 class CommentAdder extends Component {
 
   state = {
-    comment_body: ''
+    comment_body: '',
+    err: '',
   }
 
   handleCommentSubmit = (event) => {
@@ -23,7 +25,7 @@ class CommentAdder extends Component {
         this.setState({ comment_body: '' });
       })
       .catch(err => {
-        this.setState({ err: 'No API response.' });
+        this.setState({ err: err.response.data.msg });
       })
   }
 
@@ -36,6 +38,8 @@ class CommentAdder extends Component {
 
 
   render() {
+    const { err } = this.state;
+    if (err) return <ErrorDisplayer msg={err} />
     return (
       <div className={'addComment'}>
         <h2>Add a Comment: </h2>

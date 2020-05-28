@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArticleCard from './ArticleCard';
 import Loader from './Loader';
+import ErrorDisplayer from './ErrorDisplayer'
 import * as api from '../utils/api';
 
 class ArticleList extends Component {
@@ -9,6 +10,7 @@ class ArticleList extends Component {
     ],
     filters: ['Date', 'Comment count', 'Vote count'],
     isLoading: true,
+    err: '',
   }
 
   componentDidMount() {
@@ -23,13 +25,19 @@ class ArticleList extends Component {
 
   getArticles = () => {
     const { topic } = this.props;
-    api.fetchArticles(topic).then((articles) => {
-      this.setState({ articles, isLoading: false })
-    })
+    api.fetchArticles(topic)
+      .then((articles) => {
+        this.setState({ articles, isLoading: false })
+      })
+      .catch((err) => {
+        this.setState({ err: err.response.data.msg, isLoading: false })
+      })
   }
 
   render() {
-    if (this.state.isLoading) return <Loader />
+    const { isLoading, err } = this.state;
+    if (isLoading) return <Loader />
+    if (err) return <ErrorDisplayer msg={err} />
     return (
       <main>
         <h2>Articles:</h2>

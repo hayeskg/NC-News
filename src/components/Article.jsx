@@ -16,7 +16,6 @@ class Article extends Component {
 
   componentDidMount() {
     Promise.all([this.getArcticleByID(), this.getCommentsByID()]);
-    ///catch
   }
 
   getArcticleByID = () => {

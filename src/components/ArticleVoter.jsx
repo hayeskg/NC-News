@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import * as api from '../utils/api'
+import * as api from '../utils/api';
+import ErrorDisplayer from './ErrorDisplayer';
 
 class ArticleVoter extends Component {
 
   state = {
     userVotes: 0,
+    err: '',
   };
 
   handleVote = (vote) => {
@@ -17,13 +19,14 @@ class ArticleVoter extends Component {
     const { article_id } = this.props;
     api.patchArticleByID(article_id, vote)
       .catch(err => {
-        this.setState({ err: 'No API response.' });
+        this.setState({ err: err.response.data.msg });
       })
   }
 
   render() {
     const { votes } = this.props
-    const { userVotes } = this.state;
+    const { userVotes, err } = this.state;
+    if (err) return <ErrorDisplayer msg={err} />
     if (this.state.err) return <p>{this.state.err}</p>
     return (
       <>
