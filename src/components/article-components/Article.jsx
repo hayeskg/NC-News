@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import * as api from '../utils/api';
-import Loader from './Loader'
-import CommentCard from './CommentCard';
+import * as api from '../../utils/api';
+import Loader from '../site-components/Loader'
+import CommentCard from '../comment-components/CommentCard';
 import ArticleVoter from './ArticleVoter';
-import CommentAdder from './CommentAdder';
-import ErrorDisplayer from './ErrorDisplayer';
+import CommentAdder from '../comment-components/CommentAdder';
+import ErrorDisplayer from '../error-components/ErrorDisplayer';
 
 class Article extends Component {
   state = {

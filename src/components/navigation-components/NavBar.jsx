@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from '@reach/router';
-import * as api from '../utils/api';
+import * as api from '../../utils/api';
 import Login from './Login';
 
 

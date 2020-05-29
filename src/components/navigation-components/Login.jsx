@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from '../components/styled-components/Select'
+import Select from '../styled-components/Select'
 
 const Login = (props) => {
   return (

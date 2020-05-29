@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Title from './components/Title';
-import NavBar from './components/NavBar';
+import Title from './components/site-components/Title';
+import NavBar from './components/navigation-components/NavBar';
 import { Router } from '@reach/router'
-import ArticleList from './components/ArticleList';
-import Article from './components/Article'
-import ErrorDisplayer from './components/ErrorDisplayer';
-import Footer from "./components/Footer";
+import ArticleList from './components/article-components/ArticleList';
+import Article from './components/article-components/Article'
+import ErrorDisplayer from './components/error-components/ErrorDisplayer';
+import Footer from "./components/site-components/Footer";
 
 import styled from 'styled-components'
 

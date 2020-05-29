@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ArticleCard from './ArticleCard';
-import Loader from './Loader';
-import ErrorDisplayer from './ErrorDisplayer'
-import * as api from '../utils/api';
-import Select from './styled-components/Select'
+import Loader from '../site-components/Loader';
+import ErrorDisplayer from '../error-components/ErrorDisplayer'
+import * as api from '../../utils/api';
+import Select from '../styled-components/Select'
 
 
 class ArticleList extends Component {

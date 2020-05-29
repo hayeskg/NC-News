@@ -7,10 +7,9 @@ NC News is a platform for all things Northcoders related. It allows users to bro
 
 The site repository is available on GitHub: https://github.com/hayeskg/nc-news 
 
-It is hosted live on Netlify: 
-```
-placeholder for hosted app address
-```
+Front end application is hosted live on Netlify: https://hayeskg-nc-news.netlify.app/ 
+
+Back end server is hosted live on: https://nc-news-hayeskg.herokuapp.com/
 
 ## Technologies used
 
@@ -20,7 +19,7 @@ placeholder for hosted app address
 * Some styled components are used as part of the overall visual design (https://styled-components.com/).
 
 
-The back-end for this application can be found here: https://github.com/hayeskg/backend_nc_news.
+The back-end for this application can be found here, with more detailed information: https://github.com/hayeskg/backend_nc_news.
 
 It's an Express server built on NodeJS and PostgreSQL with a list of available API endpoints. It is hosted live on Heroku: https://nc-news-hayeskg.herokuapp.com/.
 

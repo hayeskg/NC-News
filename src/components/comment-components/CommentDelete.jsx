@@ -1,6 +1,6 @@
 import React from 'react';
-import * as api from '../utils/api';
-import ErrorDisplayer from './ErrorDisplayer';
+import * as api from '../../utils/api';
+import ErrorDisplayer from '../error-components/ErrorDisplayer';
 
 
 
