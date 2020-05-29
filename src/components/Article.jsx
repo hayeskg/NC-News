@@ -46,15 +46,14 @@ class Article extends Component {
     })
   }
   removeCommentFromState = (comment_id) => {
-    this.getCommentsByID();
-    // this.setState((currentState) => {
-    //   const newCommments = currentState.comments.map((comment) => {
-    //     if (comment.comment_id !== comment_id) {
-    //       return comment;
-    //     }
-    //   })
-    //   return { comments: newCommments }
-    // })
+    this.setState((currentState) => {
+      const updatedCommments = currentState.comments.filter((comment) => {
+        if (comment.comment_id !== comment_id) {
+          return comment;
+        }
+      })
+      return { comments: updatedCommments }
+    })
   }
 
   render() {

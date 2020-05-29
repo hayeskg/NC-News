@@ -8,6 +8,12 @@ import Article from './components/Article'
 import ErrorDisplayer from './components/ErrorDisplayer';
 import Footer from "./components/Footer";
 
+import styled from 'styled-components'
+
+const Outer = styled.div`
+  text-align: center;
+`
+
 class App extends Component {
 
   state = {
@@ -22,7 +28,7 @@ class App extends Component {
   render() {
     const { currentUser, users } = this.state
     return (
-      <div>
+      <Outer>
         <Title user={currentUser} />
         <NavBar users={users} updateUser={this.updateUser} />
         <Router>
@@ -33,7 +39,7 @@ class App extends Component {
           <ErrorDisplayer default />
         </Router>
         <Footer />
-      </div>
+      </Outer>
     );
   }
 }

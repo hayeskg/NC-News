@@ -3,6 +3,8 @@ import ArticleCard from './ArticleCard';
 import Loader from './Loader';
 import ErrorDisplayer from './ErrorDisplayer'
 import * as api from '../utils/api';
+import Select from './styled-components/Select'
+
 
 class ArticleList extends Component {
   state = {
@@ -43,20 +45,26 @@ class ArticleList extends Component {
     this.setState({ sort_by: filter, isLoading: false })
   }
 
+  log = (event) => {
+    console.dir(event)
+  }
+
   render() {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
+
+
     return (
       <main>
         <h2>Articles:</h2>
         <div>
           <label htmlFor="filters">Filter by: </label>
-          <select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters">
+          <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
             })}
-          </select>
+          </Select>
         </div>
         {this.state.articles.map(article => {
           return <li key={article.article_id}>
