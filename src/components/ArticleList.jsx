@@ -21,10 +21,9 @@ class ArticleList extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.topic !== prevProps.topic) {
-      this.getArticles();
-    }
-    else if (this.state.sort_by !== prevState.sort_by) {
+    const topicChanged = this.props.topic !== prevProps.topic;
+    const sortByChanged = this.state.sort_by !== prevState.sort_by;
+    if (topicChanged || sortByChanged) {
       this.getArticles();
     }
   }
