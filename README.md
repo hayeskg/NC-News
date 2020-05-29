@@ -5,8 +5,6 @@
 
 NC News is a platform for all things Northcoders related. It allows users to browse, sort and read articles, then comment or vote on them live. 
 
-The site repository is available on GitHub: https://github.com/hayeskg/nc-news 
-
 Front end application is hosted live on Netlify: https://hayeskg-nc-news.netlify.app/ 
 
 Back end server is hosted live on: https://nc-news-hayeskg.herokuapp.com/
