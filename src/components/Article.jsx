@@ -51,6 +51,7 @@ class Article extends Component {
         if (comment.comment_id !== comment_id) {
           return comment;
         }
+        return null
       })
       return { comments: updatedCommments }
     })
