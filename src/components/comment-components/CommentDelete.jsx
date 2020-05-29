@@ -1,6 +1,7 @@
 import React from 'react';
 import * as api from '../../utils/api';
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
+import Button from '../styled-components/Button'
 
 
 
@@ -13,6 +14,8 @@ class CommentDelete extends React.Component {
 
   handleDelete = () => {
     const { comment_id, removeCommentFromState } = this.props;
+
+    //run them simultaneously 
     api.removeCommentByID(comment_id)
       .then(() => {
         removeCommentFromState(comment_id)
@@ -26,7 +29,7 @@ class CommentDelete extends React.Component {
     const { err } = this.state;
     if (err) return <ErrorDisplayer msg={err} />
     return (
-      <button onClick={this.handleDelete}>Delete Comment</button>
+      <Button onClick={this.handleDelete}>Delete Comment</Button>
     );
   }
 

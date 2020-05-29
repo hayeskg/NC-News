@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loader = () => {
   return (
-    <img src="https://www.thegibsonhotel.ie/wp-content/themes/gibson2017/images/loading.gif" alt="loading_spinnger" />
+    <img src="https://www.dnb.co.uk/content/dam/english/image-library/Modernization/other/loading-dots.gif" alt="loading_spinnger" />
   );
 };
 

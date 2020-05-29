@@ -27,7 +27,7 @@ To run the NC News application on a local development machine, clone or fork the
 
 ### Prerequisites 
 
-ReactJS requires NodeJS to be installed locally, to download:
+ReactJS requires NodeJS to be installed locally, to download (minimum v13.13.0 required):
 
 * NodeJS: https://nodejs.org/en/download/ 
 

@@ -3,7 +3,7 @@ import ArticleCard from './ArticleCard';
 import Loader from '../site-components/Loader';
 import ErrorDisplayer from '../error-components/ErrorDisplayer'
 import * as api from '../../utils/api';
-import Select from '../styled-components/Select'
+import Select from '../styled-components/Select';
 
 
 class ArticleList extends Component {
@@ -52,13 +52,11 @@ class ArticleList extends Component {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
-
-
     return (
-      <main>
+      <main className='article-list'>
         <h2>Articles:</h2>
         <div>
-          <label htmlFor="filters">Filter by: </label>
+          <label htmlFor="filters">Filter by: </label><br />
           <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
@@ -66,7 +64,7 @@ class ArticleList extends Component {
           </Select>
         </div>
         {this.state.articles.map(article => {
-          return <li key={article.article_id}>
+          return <li className='article-card' key={article.article_id}>
             <ArticleCard {...article} />
           </li>
         })}

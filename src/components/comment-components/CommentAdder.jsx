@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../../utils/api'
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
+import Button from '../styled-components/Button'
 
 class CommentAdder extends Component {
 
@@ -46,7 +47,7 @@ class CommentAdder extends Component {
         <form onSubmit={this.handleCommentSubmit}>
           <label htmlFor='comment_body'>Comment: </label>
           <input onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required />
-          <button>Add!</button>
+          <Button>Add!</Button>
         </form>
       </div>
     );

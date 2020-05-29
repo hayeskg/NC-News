@@ -48,10 +48,7 @@ class Article extends Component {
   removeCommentFromState = (comment_id) => {
     this.setState((currentState) => {
       const updatedCommments = currentState.comments.filter((comment) => {
-        if (comment.comment_id !== comment_id) {
-          return comment;
-        }
-        return null
+        return (comment.comment_id !== comment_id)
       })
       return { comments: updatedCommments }
     })
@@ -62,12 +59,13 @@ class Article extends Component {
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
     const { title, body, author, votes, created_at, comment_count, article_id } = this.state.article;
+    const date = created_at.slice(0, 10) + ' at ' + created_at.slice(11, 19);
     const { user } = this.props
     return (
-      <article>
+      <article className='article'>
         <h2>{title}</h2>
         <h3>Author: {author}</h3>
-        <p>Created: {created_at}</p>
+        <p>Posted: {date}</p>
         <p>{body}</p>
         <ArticleVoter article_id={article_id} votes={votes} />
         <p>Comments: {comment_count}</p>

@@ -1,8 +1,3 @@
-body{
-  background-color: lightgray;
-  text-align: center;
-  padding: 20px;
-}
 
 ul {
   list-style-type: none;
@@ -13,11 +8,11 @@ li {
   list-style-type: none;
 }
 
+
+
 .comment{
   border: black;
-  border-style: dashed;
-  border-width: 1px;
-  background-color: lightseagreen;
+  background-color: #b4d2e7;
   width: 300px;
   padding: 20px;
   margin-left: auto;
@@ -26,10 +21,9 @@ li {
 }
 
 .addComment{
+  display: grid;
   border: black;
-  border-style: dashed;
-  border-width: 1px;
-  background-color:lightpink;
+  background-color: #a1a6b4;
   width: 300px;
   padding: 20px;
   margin-left: auto;
@@ -37,3 +31,49 @@ li {
   align-items: center;
 
 }
+
+.topics {
+  color: white;
+  margin: 20px
+}
+
+.title {
+  background-color: #B4D2E7;
+  border-radius: 2em;
+  padding: 20px;
+  margin: 20px;
+}
+.navbar {
+  background-color: #B4D2E7;
+  border-radius: 2em;
+  padding: 20px;
+  margin: 20px
+}
+.footer {
+  background-color: #B4D2E7;
+  border-radius: 2em;
+  padding: 20px;
+  margin: 20px
+}
+
+.article {
+  background-color: #94c5cc;
+  border-radius: 2em;
+  padding: 20px;
+  margin: 20px
+}
+
+.article-list {
+  background-color: #B4D2E7;
+  border-radius: 2em;
+  padding: 20px;
+  margin: 20px
+}
+
+.article-card{
+  background-color: #94C5CC;
+  border-radius: 2em;
+  padding: 20px;
+  margin: 20px
+}
+
