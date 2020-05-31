@@ -23,19 +23,25 @@ class NavBar extends Component {
   }
 
   render() {
+    const { updateUser, users } = this.props;
     return (
       <nav className='navbar' >
-        <Button>
+        <div className='home'>
           <Link to='/'>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Simpleicons_Places_home-front.svg/1024px-Simpleicons_Places_home-front.svg.png" height='40' width='40' alt="home icon" />
+            <Button>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Simpleicons_Places_home-front.svg/1024px-Simpleicons_Places_home-front.svg.png" height='40' width='40' alt="home icon" />
+            </Button>
           </Link>
-        </Button>
-        <Login users={this.props.users} updateUser={this.props.updateUser} />
-        <p>Topics:</p>
+        </div>
+        <h2 className='login-as'>Login as: </h2>
+        <div className='login-select'>
+          <Login users={users} updateUser={updateUser} />
+        </div>
         {this.state.topics.map(({ slug }) => {
-          return <Button key={slug}> <Link className='topics' to={`/articles/${slug}`}>#{slug}</Link> </Button>
-        })}
-      </nav>
+          return <Link key={slug} to={`/articles/${slug}`}><Button className='topics'> #{slug} </Button></Link>
+        })
+        }
+      </nav >
     );
   }
 }

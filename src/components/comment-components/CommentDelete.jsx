@@ -14,15 +14,10 @@ class CommentDelete extends React.Component {
 
   handleDelete = () => {
     const { comment_id, removeCommentFromState } = this.props;
-
-    //run them simultaneously 
-    api.removeCommentByID(comment_id)
-      .then(() => {
-        removeCommentFromState(comment_id)
-      })
-      .catch((err) => {
-        this.setState({ err: err.response.data.msg })
-      })
+    removeCommentFromState(comment_id)
+    api.removeCommentByID(comment_id).catch((err) => {
+      this.setState({ err: err.response.data.msg })
+    })
   }
 
   render() {

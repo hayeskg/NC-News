@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <Outer>
         <Title user={currentUser} />
-        <NavBar users={users} updateUser={this.updateUser} />
+        <NavBar user={currentUser} users={users} updateUser={this.updateUser} />
         <Router>
           <ArticleList path='/' />
           <ArticleList path='/articles' />

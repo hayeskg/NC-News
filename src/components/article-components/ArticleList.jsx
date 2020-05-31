@@ -6,6 +6,7 @@ import * as api from '../../utils/api';
 import Select from '../styled-components/Select';
 
 
+
 class ArticleList extends Component {
   state = {
     articles: [
@@ -54,9 +55,8 @@ class ArticleList extends Component {
     if (err) return <ErrorDisplayer msg={err} />
     return (
       <main className='article-list'>
-        <h2>Articles:</h2>
+        <h2>Articles</h2>
         <div>
-          <label htmlFor="filters">Filter by: </label><br />
           <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>

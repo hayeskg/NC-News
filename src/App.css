@@ -12,6 +12,7 @@ li {
 
 .comment{
   border: black;
+  border-radius: 2em;
   background-color: #b4d2e7;
   width: 300px;
   padding: 20px;
@@ -23,6 +24,7 @@ li {
 .addComment{
   display: grid;
   border: black;
+  border-radius: 2em;
   background-color: #a1a6b4;
   width: 300px;
   padding: 20px;
@@ -32,26 +34,41 @@ li {
 
 }
 
-.topics {
-  color: white;
-  margin: 20px
-}
-
 .title {
   background-color: #B4D2E7;
   border-radius: 2em;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-style: solid;
   padding: 20px;
   margin: 20px;
+  color: black;
 }
 .navbar {
   background-color: #B4D2E7;
   border-radius: 2em;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-style: solid;
   padding: 20px;
-  margin: 20px
+  margin: 20px;
+  text-align: center;
 }
+
+.login-select {
+  padding: 10px
+}
+
+.topics {
+  padding: 10px
+}
+
 .footer {
   background-color: #B4D2E7;
   border-radius: 2em;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-style: solid;
   padding: 20px;
   margin: 20px
 }
@@ -60,11 +77,17 @@ li {
   background-color: #94c5cc;
   border-radius: 2em;
   padding: 20px;
-  margin: 20px
+  margin: 20px;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-style: solid;
+  border-width: 2px;
 }
 
 .article-list {
   background-color: #B4D2E7;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-style: solid;
   border-radius: 2em;
   padding: 20px;
   margin: 20px
@@ -73,7 +96,21 @@ li {
 .article-card{
   background-color: #94C5CC;
   border-radius: 2em;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.623);
+  border-style: solid;
   padding: 20px;
-  margin: 20px
+  margin: 20px;
+ 
+  
+}
+
+.article-card a:link {
+  color: #e76f51;
+   text-decoration-line: none;
+}
+
+.article-card a:visited {
+  color: #e76f51;
 }
 
