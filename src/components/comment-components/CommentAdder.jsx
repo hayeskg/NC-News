@@ -45,9 +45,8 @@ class CommentAdder extends Component {
       <div className={'addComment'}>
         <h2>Add a Comment: </h2>
         <form onSubmit={this.handleCommentSubmit}>
-          <label htmlFor='comment_body'>Comment: </label>
-          <input onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required />
-          <Button>Add!</Button>
+          <textarea cols="40" rows="5" className='comment-box' type='text' onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required /><br />
+          <Button>Post Comment</Button>
         </form>
       </div>
     );

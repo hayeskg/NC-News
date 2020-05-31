@@ -11,10 +11,13 @@ li {
 
 
 .comment{
-  border: black;
+  border-style: solid;
   border-radius: 2em;
   background-color: #b4d2e7;
-  width: 300px;
+   border-radius: 2em;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.623);
+  width: auto;
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -22,16 +25,32 @@ li {
 }
 
 .addComment{
-  display: grid;
-  border: black;
+  border-style: solid;
   border-radius: 2em;
-  background-color: #a1a6b4;
-  width: 300px;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.623);
+  border-radius: 2em;
+  background-color: rgb(139, 171, 194);
+  width: auto;
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
   align-items: center;
 
+}
+
+.comment-box {
+  width: 250px;
+  height: 100px;
+  border-style: solid;
+  border-radius: 1em;
+  background-color: #b4d2e7;
+  border-width: 1px;
+  text-align: left;
+  vertical-align: top;
+  margin-bottom: 10px;
+  font-family:'Montserrat', sans-serif;
+  font-size: 16pt;
 }
 
 .title {
@@ -101,9 +120,9 @@ li {
   border-style: solid;
   padding: 20px;
   margin: 20px;
- 
-  
 }
+
+
 
 .article-card a:link {
   color: #e76f51;

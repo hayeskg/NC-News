@@ -64,12 +64,15 @@ class Article extends Component {
     return (
       <article className='article'>
         <h2>{title}</h2>
+        <p>___</p>
         <h3>Author: {author}</h3>
         <p>Posted: {date}</p>
+        <p>___</p>
         <p>{body}</p>
+        <p>___</p>
         <ArticleVoter article_id={article_id} votes={votes} />
         <p>Comments: {comment_count}</p>
-        <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
+        <CommentAdder className='comment-adder' currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
         {this.state.comments.map((comment) => {
           return <CommentCard key={comment.comment_id} {...comment} currentUser={user} removeCommentFromState={this.removeCommentFromState} />;
         })}

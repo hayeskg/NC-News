@@ -31,12 +31,14 @@ class CommentVoter extends Component {
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
-        <Button onClick={() => this.handleVote(1)} disabled={this.state.userVotes > 0} >
-          <span role='img' aria-label='upvote'> 👍</span>
-        </Button>
-        <Button onClick={() => this.handleVote(-1)} disabled={this.state.userVotes < 0}>
-          <span role='img' aria-label='downvote'> 👎</span>
-        </Button>
+        <>
+          <Button onClick={() => this.handleVote(1)} disabled={this.state.userVotes > 0} >
+            <span role='img' aria-label='upvote'> 👍</span>
+          </Button>
+          <Button onClick={() => this.handleVote(-1)} disabled={this.state.userVotes < 0}>
+            <span role='img' aria-label='downvote'> 👎</span>
+          </Button>
+        </>
       </>
     );
   }

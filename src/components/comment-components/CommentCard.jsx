@@ -9,8 +9,10 @@ const CommentCard = ({ author, created_at, body, votes, comment_id, currentUser,
     < div className={'comment'}>
       <h3 >Comment by: {author}</h3>
       <p>Posted: {(date)}</p>
+      <p>___</p>
       <p>{body}</p>
-      <CommentVoter comment_id={comment_id} votes={votes} /><br />
+      <p>___</p>
+      <CommentVoter comment_id={comment_id} votes={votes} /> <br />
       {author === currentUser &&
         <CommentDelete comment_id={comment_id} removeCommentFromState={removeCommentFromState} />
       }
