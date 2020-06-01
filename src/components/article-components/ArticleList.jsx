@@ -5,12 +5,16 @@ import ErrorDisplayer from '../error-components/ErrorDisplayer'
 import * as api from '../../utils/api';
 import Select from '../styled-components/Select';
 import SmallButton from '../styled-components/SmallButton';
+import { Link } from '@reach/router';
+import SquareButton from '../styled-components/SquareButton'
 
 
 
 class ArticleList extends Component {
   state = {
     articles: [
+    ],
+    topics: [
     ],
     filters: ['created_at', 'comment_count', 'votes'],
     sort_by: '',
@@ -21,6 +25,7 @@ class ArticleList extends Component {
 
   componentDidMount() {
     this.getArticles();
+    this.getTopics();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -56,6 +61,13 @@ class ArticleList extends Component {
     }
   }
 
+  getTopics = () => {
+    api.fetchTopics().then((topics) => {
+      this.setState({ topics, isLoading: false })
+    })
+  }
+
+
   render() {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
@@ -74,6 +86,11 @@ class ArticleList extends Component {
 
           </SmallButton>
         </div>
+        <h2>Topics</h2>
+        {this.state.topics.map(({ slug }) => {
+          return <Link key={slug} to={`/articles/${slug}`}><SquareButton> #{slug} </SquareButton></Link>
+        })
+        }
         {this.state.articles.map(article => {
           return <li className='article-card' key={article.article_id}>
             <ArticleCard {...article} />

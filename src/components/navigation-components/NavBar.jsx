@@ -1,49 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from '@reach/router';
-import * as api from '../../utils/api';
 import Login from './Login';
-import Button from '../styled-components/Button'
+import Button from '../styled-components/Button';
 
 
-class NavBar extends Component {
-  state = {
-    topics: [
-    ],
-    isLoading: true,
-  }
-
-  componentDidMount() {
-    this.getTopics();
-  }
-
-  getTopics = () => {
-    api.fetchTopics().then((topics) => {
-      this.setState({ topics, isLoading: false })
-    })
-  }
-
-  render() {
-    const { updateUser, users } = this.props;
-    return (
-      <nav className='navbar' >
+const NavBar = (props) => {
+  const { updateUser, users, user } = props;
+  return (
+    <>
+      <nav className='navbar'>
         <div className='home'>
+          <h2>Home</h2>
           <Link to='/'>
             <Button>
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Simpleicons_Places_home-front.svg/1024px-Simpleicons_Places_home-front.svg.png" height='40' width='40' alt="home icon" />
             </Button>
           </Link>
         </div>
-        <h2 className='login-as'>Login as: </h2>
-        <div className='login-select'>
+        <div className='login'>
+          <h2>Login</h2>
           <Login users={users} updateUser={updateUser} />
+          <p>Hi, {user}! </p>
         </div>
-        {this.state.topics.map(({ slug }) => {
-          return <Link key={slug} to={`/articles/${slug}`}><Button className='topics'> #{slug} </Button></Link>
-        })
-        }
       </nav >
-    );
-  }
+
+    </>
+
+  );
 }
+
 
 export default NavBar;

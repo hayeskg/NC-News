@@ -8,6 +8,7 @@ import ErrorDisplayer from '../error-components/ErrorDisplayer';
 import Select from '../styled-components/Select';
 import SmallButton from '../styled-components/SmallButton'
 
+
 class Article extends Component {
   state = {
     article: {},
@@ -25,6 +26,8 @@ class Article extends Component {
 
 
   componentDidUpdate(prevProps, prevState) {
+
+
     const sortChanged = this.state.sort_by !== prevState.sort_by;
     const orderChanged = this.state.order !== prevState.order
     if (sortChanged || orderChanged) {

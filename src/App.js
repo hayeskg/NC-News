@@ -25,6 +25,8 @@ class App extends Component {
     this.setState({ currentUser: user })
   }
 
+
+
   render() {
     const { currentUser, users } = this.state
     return (
