@@ -3,25 +3,41 @@ import * as api from '../../utils/api';
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
 import Button from '../styled-components/Button'
 
-class ArticleVoter extends Component {
+class Voter extends Component {
 
   state = {
     userVotes: 0,
+    type: '',
     err: '',
-  };
+    isLoading: true,
+  }
 
   handleVote = (vote) => {
+    const { type } = this.state;
     this.setState(({ userVotes }) => {
       return {
         userVotes: userVotes + vote,
 
       }
     })
-    const { article_id } = this.props;
-    api.patchArticleByID(article_id, vote)
-      .catch(err => {
-        this.setState({ err: err.response.data.msg });
-      })
+    if (type === 'article') {
+      const { article_id } = this.props;
+      api.patchArticleByID(article_id, vote)
+        .catch(err => {
+          this.setState({ err: err.response.data.msg });
+        })
+    } else if (type === 'comment') {
+      const { comment_id } = this.props;
+      api.patchCommentByID(comment_id, vote)
+        .catch((err) => {
+          this.setState({ err: err.response.data.msg });
+        })
+    }
+  }
+
+  componentDidMount() {
+    const { type } = this.props;
+    this.setState({ type: type, isLoading: false })
   }
 
   render() {
@@ -43,4 +59,4 @@ class ArticleVoter extends Component {
   }
 }
 
-export default ArticleVoter;
+export default Voter;

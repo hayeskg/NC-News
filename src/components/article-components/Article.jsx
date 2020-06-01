@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as api from '../../utils/api';
 import Loader from '../site-components/Loader'
 import CommentCard from '../comment-components/CommentCard';
-import ArticleVoter from './ArticleVoter';
+import Voter from '../site-components/Voter'
 import CommentAdder from '../comment-components/CommentAdder';
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
 import Select from '../styled-components/Select';
@@ -98,7 +98,7 @@ class Article extends Component {
         <p>___</p>
         <p>{body}</p>
         <p>___</p>
-        <ArticleVoter article_id={article_id} votes={votes} />
+        <Voter article_id={article_id} votes={votes} type='article' />
         <p>Comments: {comment_count}</p>
         <div className='CommentsList'>
           <h2>Comments: </h2>

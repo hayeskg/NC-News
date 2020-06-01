@@ -43,7 +43,7 @@ class CommentAdder extends Component {
     if (err) return <ErrorDisplayer msg={err} />
     return (
       <div className={'addComment'}>
-        <h2>Add a Comment: </h2>
+        <h3>Add a Comment: </h3>
         <form onSubmit={this.handleCommentSubmit}>
           <textarea cols="40" rows="5" className='comment-box' type='text' onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required /><br />
           <Button>Post Comment</Button>

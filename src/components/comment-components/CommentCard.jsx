@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentVoter from './CommentVoter';
+import Voter from '../site-components/Voter';
 import CommentDelete from './CommentDelete';
 
 
@@ -12,7 +12,7 @@ const CommentCard = ({ author, created_at, body, votes, comment_id, currentUser,
       <p>___</p>
       <p>{body}</p>
       <p>___</p>
-      <CommentVoter comment_id={comment_id} votes={votes} /> <br />
+      <Voter comment_id={comment_id} votes={votes} type='comment' /> <br />
       {author === currentUser &&
         <CommentDelete comment_id={comment_id} removeCommentFromState={removeCommentFromState} />
       }
