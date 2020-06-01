@@ -45,10 +45,6 @@ class ArticleList extends Component {
     this.setState({ sort_by: filter, isLoading: false })
   }
 
-  log = (event) => {
-    console.dir(event)
-  }
-
   render() {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />

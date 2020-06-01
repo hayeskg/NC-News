@@ -23,8 +23,12 @@ export const fetchArticleByID = async (id) => {
   return article;
 }
 
-export const fetchCommentsByID = async (id) => {
-  const { data: { comments } } = await request.get(`/articles/${id}/comments`);
+export const fetchCommentsByID = async (id, sort_by) => {
+  const { data: { comments } } = await request.get(`/articles/${id}/comments`, {
+    params: {
+      sort_by: sort_by,
+    }
+  });
   return comments;
 }
 
