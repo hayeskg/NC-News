@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../../utils/api';
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
-import Button from '../styled-components/Button'
+import SmallButton from '../styled-components/SmallButton'
 
 class Voter extends Component {
 
@@ -48,12 +48,12 @@ class Voter extends Component {
     return (
       <>
         <p>Votes: {votes + userVotes}</p>
-        <Button onClick={() => this.handleVote(1)} disabled={this.state.userVotes > 0}>
+        <SmallButton onClick={() => this.handleVote(1)} disabled={this.state.userVotes > 0}>
           <span role='img' aria-label='upvote'> 👍</span>
-        </Button>
-        <Button onClick={() => this.handleVote(-1)} disabled={this.state.userVotes < 0} >
+        </SmallButton>
+        <SmallButton onClick={() => this.handleVote(-1)} disabled={this.state.userVotes < 0} >
           <span role='img' aria-label='downvote'> 👎</span>
-        </Button>
+        </SmallButton>
       </>
     );
   }

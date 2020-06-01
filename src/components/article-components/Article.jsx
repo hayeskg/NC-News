@@ -100,17 +100,18 @@ class Article extends Component {
         <p>___</p>
         <Voter article_id={article_id} votes={votes} type='article' />
         <p>Comments: {comment_count}</p>
-        <div className='CommentsList'>
+        <div className={'commentsList'}>
           <h2>Comments: </h2>
-          <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
+
           <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
             })}
-          </Select>
+          </Select> <br />
           <SmallButton onClick={this.updateOrder}>
             <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
           </SmallButton>
+          <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
           {this.state.comments.map((comment) => {
             return <CommentCard key={comment.comment_id} {...comment} currentUser={user} removeCommentFromState={this.removeCommentFromState} />;
           })}

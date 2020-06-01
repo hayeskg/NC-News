@@ -8,7 +8,16 @@ li {
   list-style-type: none;
 }
 
-
+.commentsList {
+  background-color: rgba(158, 143, 78, 0.733);
+  border-radius: 2em;
+  border-width: 2px;
+  border-color: rgba(0, 0, 0, 0.349);
+  border-style: solid;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+}
 
 .comment{
   border-style: solid;
@@ -40,7 +49,7 @@ li {
 }
 
 .comment-box {
-  width: 250px;
+  /* width: auto;
   height: 100px;
   border-style: solid;
   border-radius: 1em;
@@ -48,7 +57,19 @@ li {
   border-width: 1px;
   text-align: left;
   vertical-align: top;
-  margin-bottom: 10px;
+  margin-bottom: 10px; */
+  
+  background-color: #b4d2e7;
+  border-style: solid;
+  border-radius: 1em;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.623);
+  border-radius: 2em;
+  width: auto;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
   font-family:'Montserrat', sans-serif;
   font-size: 16pt;
 }
@@ -61,8 +82,8 @@ li {
   border-style: solid;
   padding: 20px;
   margin: 20px;
-  color: black;
 }
+
 .navbar {
   background-color: #B4D2E7;
   border-radius: 2em;
@@ -125,11 +146,11 @@ li {
 
 
 .article-card a:link {
-  color: #e76f51;
+  color:  #9e3e26;
    text-decoration-line: none;
 }
 
 .article-card a:visited {
-  color: #e76f51;
+  color:  #9e3e26;
 }
 

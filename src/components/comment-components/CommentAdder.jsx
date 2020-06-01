@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as api from '../../utils/api'
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
-import Button from '../styled-components/Button'
+import SmallButton from '../styled-components/SmallButton'
 
 class CommentAdder extends Component {
 
@@ -45,8 +45,8 @@ class CommentAdder extends Component {
       <div className={'addComment'}>
         <h3>Add a Comment: </h3>
         <form onSubmit={this.handleCommentSubmit}>
-          <textarea cols="40" rows="5" className='comment-box' type='text' onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required /><br />
-          <Button>Post Comment</Button>
+          <textarea cols="auto" rows="5" className='comment-box' type='text' onChange={this.handleInputChange} name='comment_body' value={this.state.comment_body} required /><br />
+          <SmallButton>Post</SmallButton>
         </form>
       </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as api from '../../utils/api';
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
-import Button from '../styled-components/Button'
+import SmallButton from '../styled-components/SmallButton'
 
 
 
@@ -24,7 +24,7 @@ class CommentDelete extends React.Component {
     const { err } = this.state;
     if (err) return <ErrorDisplayer msg={err} />
     return (
-      <Button onClick={this.handleDelete}>Delete Comment</Button>
+      <SmallButton onClick={this.handleDelete}>Delete</SmallButton>
     );
   }
 
