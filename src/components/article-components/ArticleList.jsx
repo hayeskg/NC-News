@@ -73,29 +73,35 @@ class ArticleList extends Component {
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
     return (
-      <main className='article-list'>
-        <h2>Articles</h2>
-        <div>
-          <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
-            {this.state.filters.map((filter, index) => {
-              return <option key={index} value={filter}>{filter}</option>
-            })}
-          </Select>
-          <SmallButton onClick={this.updateOrder}>
-            <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
-
-          </SmallButton>
+      <main className='article-page'>
+        <h1>Articles</h1>
+        <div className='filters'>
+          <div>
+            <h2>Filter by topic:</h2>
+            {this.state.topics.map(({ slug }) => {
+              return <Link className='topic-button' key={slug} to={`/articles/${slug}`}><SquareButton> #{slug} </SquareButton></Link>
+            })
+            }
+          </div>
+          <div >
+            <h2 className='order-text'>Order:</h2>
+            <Select className='sort-select' onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
+              {this.state.filters.map((filter, index) => {
+                return <option key={index} value={filter}>{filter}</option>
+              })}
+            </Select>
+            <SmallButton onClick={this.updateOrder}>
+              <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
+            </SmallButton>
+          </div>
         </div>
-        <h2>Topics</h2>
-        {this.state.topics.map(({ slug }) => {
-          return <Link key={slug} to={`/articles/${slug}`}><SquareButton> #{slug} </SquareButton></Link>
-        })
-        }
-        {this.state.articles.map(article => {
-          return <li className='article-card' key={article.article_id}>
-            <ArticleCard {...article} />
-          </li>
-        })}
+        <div className='article-list'>
+          {this.state.articles.map(article => {
+            return <li className='article-card' key={article.article_id}>
+              <ArticleCard {...article} />
+            </li>
+          })}
+        </div>
       </main>
     );
   }

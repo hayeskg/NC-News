@@ -6,13 +6,12 @@ const Select = styled.select`
 
   background-color: #e9c46a;
   height: 3em;
-  width: 8em;
+  width: 10em;
   color: #9e3e26;
   font-size: 16pt;
-  border-radius: 2em;
+  border-radius: 1em;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.623);
-  text-align: center;
   
 `
 

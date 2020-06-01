@@ -89,35 +89,37 @@ class Article extends Component {
     const { isLoading, err } = this.state;
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
-    const { title, body, author, votes, created_at, comment_count, article_id } = this.state.article;
+    const { title, body, author, votes, created_at, article_id } = this.state.article;
     const date = created_at.slice(0, 10) + ' at ' + created_at.slice(11, 19);
     const { user } = this.props
     return (
       <article className='article'>
-        <h2>{title}</h2>
-        <p>___</p>
-        <h3>Author: {author}</h3>
-        <p>Posted: {date}</p>
-        <p>___</p>
-        <p>{body}</p>
-        <p>___</p>
-        <Voter article_id={article_id} votes={votes} type='article' />
-        <p>Comments: {comment_count}</p>
-        <div className={'commentsList'}>
+        <div className='article-body'>
+          <h2>{title}</h2>
+          <p>___</p>
+          <h3>Author: {author}</h3>
+          <p>Posted: {date}</p>
+          <p>___</p>
+          <p>{body}</p>
+          <p>___</p>
+          <Voter article_id={article_id} votes={votes} type='article' />
+        </div>
+        <div className='comment-list'>
           <h2>Comments: </h2>
-
           <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
             })}
-          </Select> <br />
+          </Select>
           <SmallButton onClick={this.updateOrder}>
             <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
           </SmallButton>
-          <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
-          {this.state.comments.map((comment) => {
-            return <CommentCard key={comment.comment_id} {...comment} currentUser={user} removeCommentFromState={this.removeCommentFromState} />;
-          })}
+          <div className='comment-card'>
+            <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
+            {this.state.comments.map((comment) => {
+              return <CommentCard key={comment.comment_id} {...comment} currentUser={user} removeCommentFromState={this.removeCommentFromState} />;
+            })}
+          </div>
         </div>
       </article>
     );
