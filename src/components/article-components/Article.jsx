@@ -5,7 +5,8 @@ import CommentCard from '../comment-components/CommentCard';
 import ArticleVoter from './ArticleVoter';
 import CommentAdder from '../comment-components/CommentAdder';
 import ErrorDisplayer from '../error-components/ErrorDisplayer';
-import Select from '../styled-components/Select'
+import Select from '../styled-components/Select';
+import SmallButton from '../styled-components/SmallButton'
 
 class Article extends Component {
   state = {
@@ -13,6 +14,7 @@ class Article extends Component {
     comments: [],
     filters: ['created_at', 'votes'],
     sort_by: '',
+    order: 'desc',
     isLoading: true,
     err: '',
   }
@@ -23,9 +25,9 @@ class Article extends Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-
-
-    if (this.state.sort_by !== prevState.sort_by) {
+    const sortChanged = this.state.sort_by !== prevState.sort_by;
+    const orderChanged = this.state.order !== prevState.order
+    if (sortChanged || orderChanged) {
       this.getCommentsByID();
     }
   }
@@ -43,8 +45,8 @@ class Article extends Component {
 
   getCommentsByID = () => {
     const { article_id } = this.props;
-    const { sort_by } = this.state;
-    api.fetchCommentsByID(article_id, sort_by)
+    const { sort_by, order } = this.state;
+    api.fetchCommentsByID(article_id, sort_by, order)
       .then((comments) => {
         this.setState({ comments, isLoading: false });
       })
@@ -71,6 +73,14 @@ class Article extends Component {
     this.setState({ sort_by: filter, isLoading: false })
   }
 
+  updateOrder = () => {
+    if (this.state.order === 'asc') {
+      this.setState({ order: 'desc', isLoading: false })
+    } else {
+      this.setState({ order: 'asc', isLoading: false })
+    }
+  }
+
 
   render() {
     const { isLoading, err } = this.state;
@@ -92,13 +102,15 @@ class Article extends Component {
         <p>Comments: {comment_count}</p>
         <div className='CommentsList'>
           <h2>Comments: </h2>
-
           <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
           <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
             {this.state.filters.map((filter, index) => {
               return <option key={index} value={filter}>{filter}</option>
             })}
           </Select>
+          <SmallButton onClick={this.updateOrder}>
+            <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
+          </SmallButton>
           {this.state.comments.map((comment) => {
             return <CommentCard key={comment.comment_id} {...comment} currentUser={user} removeCommentFromState={this.removeCommentFromState} />;
           })}

@@ -8,11 +8,12 @@ export const fetchTopics = async () => {
 
 }
 
-export const fetchArticles = async (topic, sort_by) => {
+export const fetchArticles = async (topic, sort_by, order) => {
   const { data: { articles } } = await request.get('/articles', {
     params: {
       topic: topic,
       sort_by: sort_by,
+      order: order,
     }
   });
   return articles;
@@ -23,10 +24,11 @@ export const fetchArticleByID = async (id) => {
   return article;
 }
 
-export const fetchCommentsByID = async (id, sort_by) => {
+export const fetchCommentsByID = async (id, sort_by, order) => {
   const { data: { comments } } = await request.get(`/articles/${id}/comments`, {
     params: {
       sort_by: sort_by,
+      order: order,
     }
   });
   return comments;
