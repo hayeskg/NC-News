@@ -11,6 +11,8 @@
   border-style: solid;
   padding: 20px;
   margin: 10px;
+  font-weight: 600;
+  font-size: larger;
 }
 
 .navbar {
@@ -50,7 +52,7 @@
 
 .article-card{
   width: 300px;
-  background-color: #94C5CC;
+  background-color: rgb(139, 171, 194);
   border-radius: 2em;
   border-width: 1px;
   border-color: rgba(0, 0, 0, 0.623);
@@ -78,12 +80,12 @@
 
 
 .article-card a:link {
-  color:  #9e3e26;
+  color:  black;
    text-decoration-line: none;
 }
 
 .article-card a:visited {
-  color:  #9e3e26;
+  color:  black;
 }
 
 .article{
@@ -94,53 +96,20 @@
   border-color: rgba(0, 0, 0, 0.349);
   border-style: solid;
   border-width: 2px;
+  font-weight: 500;
+  color: black;
 }
 
 
 .comment-list {
-  background-color: rgba(158, 143, 78, 0.733);
+  background-color: #89c2eb;
   border-radius: 2em;
   border-width: 2px;
   border-color: rgba(0, 0, 0, 0.349);
   border-style: solid;
-  padding: 20px;
   margin: 10px;
   text-align: center;
-}
-
-/* .comment{
-  border-style: solid;
-  border-radius: 2em;
-  background-color: #b4d2e7;
-   border-radius: 2em;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.623);
-  width: auto;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
   align-items: center;
-} */
-.comment-card{
-  display: flex;
-  align-items: center;
-  justify-content:space-around;
-  flex-wrap: wrap;
-  align-items: baseline;
-  padding: 10px;
-  margin: 10px
-}
-
-.comment {
-  width: 300px;
-  background-color: #94C5CC;
-  border-radius: 2em;
-  border-width: 1px;
-  border-color: rgba(0, 0, 0, 0.623);
-  border-style: solid;
-  padding: 10px;
-  margin: 10px;
-
   
 }
 
@@ -170,12 +139,38 @@
   font-size: 16pt;
 }
  
+
+.comment-card{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin: 10px
+}
+
+.comment {
+  width: 300px;
+  background-color: rgb(139, 171, 194);
+  border-radius: 2em;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.623);
+  border-style: solid;
+  padding: 10px;
+  margin: 10px;
+}
+
+.delete-button {
+  color: white;
+  background-color: #c3002f;
+}
+
 .footer {
   background-color: #B4D2E7;
   border-radius: 2em;
   border-width: 2px;
   border-color: rgba(0, 0, 0, 0.349);
   border-style: solid;
-  padding: 20px;
-  margin: 20px;
+  padding: 10px;
+  margin: 10px;
 }

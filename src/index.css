@@ -8,10 +8,10 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #A1A6B4;
+  background-color: #3c3c3b;
   text-align: center;
   padding: 20px;
-  color: #9e3e26
+  color: #c3002f
 }
 
 code {

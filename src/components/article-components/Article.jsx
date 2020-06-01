@@ -90,7 +90,7 @@ class Article extends Component {
     if (isLoading) return <Loader />
     if (err) return <ErrorDisplayer msg={err} />
     const { title, body, author, votes, created_at, article_id } = this.state.article;
-    const date = created_at.slice(0, 10) + ' at ' + created_at.slice(11, 19);
+    const date = '' && created_at.slice(0, 10) + ' at ' + created_at.slice(11, 19);
     const { user } = this.props
     return (
       <article className='article'>
@@ -106,14 +106,16 @@ class Article extends Component {
         </div>
         <div className='comment-list'>
           <h2>Comments: </h2>
-          <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
-            {this.state.filters.map((filter, index) => {
-              return <option key={index} value={filter}>{filter}</option>
-            })}
-          </Select>
-          <SmallButton onClick={this.updateOrder}>
-            <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
-          </SmallButton>
+          <div>
+            <Select onChange={(e) => { this.updateFilter(e.target.value) }} name="filters" id="filters" >
+              {this.state.filters.map((filter, index) => {
+                return <option key={index} value={filter}>{filter}</option>
+              })}
+            </Select>
+            <SmallButton onClick={this.updateOrder}>
+              <img src="https://image.flaticon.com/icons/svg/164/164018.svg" height='30' width='30' alt="sort icon" />
+            </SmallButton>
+          </div>
           <div className='comment-card'>
             <CommentAdder currentUser={user} article_id={article_id} addCommentToState={this.addCommentToState} />
             {this.state.comments.map((comment) => {

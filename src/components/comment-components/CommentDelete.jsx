@@ -24,7 +24,7 @@ class CommentDelete extends React.Component {
     const { err } = this.state;
     if (err) return <ErrorDisplayer msg={err} />
     return (
-      <SquareButton onClick={this.handleDelete}>Delete</SquareButton>
+      <SquareButton className='delete-button' onClick={this.handleDelete}>Delete</SquareButton>
     );
   }
 
